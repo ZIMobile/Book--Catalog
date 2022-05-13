@@ -2,8 +2,7 @@ import React from 'react';
 import {StyleSheet} from 'react-native';
 import {SearchBar} from 'react-native-elements';
 import {useSelector, useDispatch} from 'react-redux';
-
-import * as AT from 'store/action-types';
+import * as AT from '../store/action-types';
 import {isIos} from '../constants/Layout';
 import Strings from '../constants/Strings';
 

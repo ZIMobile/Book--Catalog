@@ -1,8 +1,8 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-import BooksCatalog from 'screens/BooksCatalog';
-import BookDetails from 'screens/BookDetails';
+import BooksCatalog from '../screens/BooksCatalog';
+import BookDetails from '../screens/BookDetails';
 import Screens from '../constants/Screens';
 import Strings from '../constants/Strings';
 
@@ -27,6 +27,10 @@ const Navigation = () => {
           component={BookDetails}
           options={({route}) => ({
             title: route.params?.bookDetails?.title || Strings.bookDetails,
+            headerTitleContainerStyle: {
+              width: '85%',
+              alignItems: 'center',
+            },
           })}
         />
       </Stack.Navigator>

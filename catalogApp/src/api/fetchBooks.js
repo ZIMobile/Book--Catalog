@@ -1,4 +1,4 @@
-import * as AT from 'store/action-types';
+import * as AT from '../store/action-types';
 import {API_URL} from '@env';
 
 export const fetchBooks = (page = 1, limit = 10, search = '', isNewSearch) => {
@@ -8,6 +8,7 @@ export const fetchBooks = (page = 1, limit = 10, search = '', isNewSearch) => {
         `${API_URL}/books?page=${page}&limit=${limit}&search=${search}`,
       );
       const {paginatedData, total} = await response.json();
+
       dispatch({
         type: AT.FETCH_BOOKS_SUCCESS,
         payload: {books: paginatedData, totalBooks: total, isNewSearch},

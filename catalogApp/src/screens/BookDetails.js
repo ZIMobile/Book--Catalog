@@ -8,7 +8,9 @@ const BookDetails = () => {
   } = useRoute();
   const {thumbnailUrl, longDescription} = bookDetails;
   return (
-    <ScrollView style={styles.detailsContainer}>
+    <ScrollView
+      showsVerticalScrollIndicator={false}
+      style={styles.detailsContainer}>
       <View style={styles.image}>
         <Image style={styles.thumb} source={{uri: thumbnailUrl}} />
       </View>

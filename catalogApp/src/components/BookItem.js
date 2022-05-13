@@ -15,7 +15,11 @@ export const BookItem = ({item = {}, isLoading = false}) => {
 
   return (
     <View style={styles.bookItemContainer}>
-      <TouchableOpacity key={isbn} onPress={onNavigate}>
+      <TouchableOpacity
+        activeOpacity={0.8}
+        disabled={isLoading}
+        key={isbn}
+        onPress={onNavigate}>
         <View style={styles.bookItem}>
           <View style={styles.imageContainer}>
             {isLoading ? (

@@ -1,13 +1,11 @@
 import React, {useEffect, useRef, useState} from 'react';
 import {View, StyleSheet, Text, Animated} from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
-
-import * as AT from 'store/action-types';
-import {fetchBooks} from 'api/fetchBooks';
-
+import * as AT from '../store/action-types';
+import {fetchBooks} from '../api/fetchBooks';
 import {Loading} from './Loading';
 import {BookItem} from './BookItem';
-import {useDebouncedEffect} from 'hooks/useDebounceEffect';
+import {useDebouncedEffect} from '../hooks/useDebounceEffect';
 
 const ITEM_HEIGHT = 136;
 
@@ -70,6 +68,7 @@ const BookList = () => {
 
   return (
     <Animated.FlatList
+      showsVerticalScrollIndicator={false}
       testID="book-list"
       data={books}
       contentContainerStyle={styles.listContainer}

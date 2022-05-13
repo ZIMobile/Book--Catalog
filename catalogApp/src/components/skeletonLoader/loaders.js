@@ -19,7 +19,7 @@ const Bone = ({children}) => {
 export const LoadingImage = () => (
   <View style={styles.image}>
     <Bone>
-      <Rect rx={8} width={70} height={75} />
+      <Rect rx={8} width={'100%'} height={75} />
     </Bone>
   </View>
 );
@@ -27,7 +27,7 @@ export const LoadingImage = () => (
 export const LoadingTitle = () => (
   <View style={styles.title}>
     <Bone>
-      <Rect rx={8} width={270} height={20} />
+      <Rect rx={8} width={'100%'} height={20} />
     </Bone>
   </View>
 );
@@ -35,7 +35,7 @@ export const LoadingTitle = () => (
 export const LoadingDesc = () => (
   <View style={styles.desc}>
     <Bone>
-      <Rect rx={8} width={270} height={45} />
+      <Rect rx={8} width={'100%'} height={45} />
     </Bone>
   </View>
 );
@@ -43,14 +43,14 @@ export const LoadingDesc = () => (
 const styles = StyleSheet.create({
   image: {
     height: 75,
-    width: 70,
+    width: '100%',
   },
   title: {
     height: 20,
-    width: 270,
+    width: '100%',
   },
   desc: {
     height: 45,
-    width: 270,
+    width: '100%',
   },
 });

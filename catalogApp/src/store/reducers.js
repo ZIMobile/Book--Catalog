@@ -1,4 +1,4 @@
-import * as AT from 'store/action-types';
+import * as AT from '../store/action-types';
 import Strings from '../constants/Strings';
 
 const initialCatalogState = {
