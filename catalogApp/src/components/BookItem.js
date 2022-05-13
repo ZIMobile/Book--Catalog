@@ -1,25 +1,21 @@
 import React from 'react';
 import {useNavigation} from '@react-navigation/native';
 import {StyleSheet, View, Text, Image, TouchableOpacity} from 'react-native';
-
 import {
   LoadingImage,
   LoadingTitle,
   LoadingDesc,
 } from './skeletonLoader/loaders';
+import Screens from '../constants/Screens';
 
 export const BookItem = ({item = {}, isLoading = false}) => {
   const {navigate} = useNavigation();
   const {title, thumbnailUrl, shortDescription, isbn} = item;
+  const onNavigate = () => navigate(Screens.bookDetails, {bookDetails: item});
+
   return (
     <View style={styles.bookItemContainer}>
-      <TouchableOpacity
-        key={isbn}
-        onPress={() => {
-          navigate('BookDetails', {
-            bookDetails: item,
-          });
-        }}>
+      <TouchableOpacity key={isbn} onPress={onNavigate}>
         <View style={styles.bookItem}>
           <View style={styles.imageContainer}>
             {isLoading ? (
@@ -32,7 +28,7 @@ export const BookItem = ({item = {}, isLoading = false}) => {
           </View>
           <View style={styles.infoContainer}>
             {isLoading ? (
-              <View style={styles.padButtom}>
+              <View style={styles.padBottom}>
                 <LoadingTitle />
               </View>
             ) : (
@@ -77,7 +73,10 @@ const styles = StyleSheet.create({
     height: 100,
     borderRadius: 8,
   },
-  imageContainer: {width: '25%', padding: 8},
+  imageContainer: {
+    width: '25%',
+    padding: 8,
+  },
   infoContainer: {
     justifyContent: 'flex-start',
     width: '70%',
@@ -93,6 +92,10 @@ const styles = StyleSheet.create({
     fontWeight: '400',
     color: '#787878',
   },
-  alignCenter: {alignItems: 'center'},
-  padButtom: {paddingBottom: 8},
+  alignCenter: {
+    alignItems: 'center',
+  },
+  padBottom: {
+    paddingBottom: 8,
+  },
 });

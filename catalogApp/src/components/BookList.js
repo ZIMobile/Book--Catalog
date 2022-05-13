@@ -14,7 +14,7 @@ const ITEM_HEIGHT = 136;
 const BookList = () => {
   const dispatch = useDispatch();
   const {books, isLoadingMore, searchValue, isLoading, error} = useSelector(
-    state => state.catalog,
+    state => state?.catalog,
   );
   const onEndReachedCalled = useRef(false);
   const scrollY = useRef(new Animated.Value(0)).current;
@@ -103,9 +103,7 @@ const BookList = () => {
         );
       }}
       initialNumToRender={10}
-      keyExtractor={item => {
-        return item.isbn;
-      }}
+      keyExtractor={item => item.isbn}
       ListFooterComponent={isLoadingMore && <Loading />}
       onEndReachedThreshold={0.9}
       onMomentumScrollBegin={() => {
@@ -122,6 +120,12 @@ const BookList = () => {
 export default BookList;
 
 const styles = StyleSheet.create({
-  listContainer: {padding: 16},
-  textMsg: {padding: 8, fontSize: 36, fontWeight: 'bold'},
+  listContainer: {
+    padding: 16,
+  },
+  textMsg: {
+    padding: 8,
+    fontSize: 36,
+    fontWeight: 'bold',
+  },
 });

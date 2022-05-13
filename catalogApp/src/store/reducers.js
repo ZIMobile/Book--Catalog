@@ -1,4 +1,5 @@
 import * as AT from 'store/action-types';
+import Strings from '../constants/Strings';
 
 const initialCatalogState = {
   books: [],
@@ -6,13 +7,10 @@ const initialCatalogState = {
   isLoading: false,
   isLoadingMore: false,
   error: null,
-  searchValue: '',
+  searchValue: Strings.Empty,
 };
 
 export const catalogReducer = (state = initialCatalogState, action) => {
-  const {type, payload} = action;
-  console.log('ACTION: ', type, 'PAYLOAD: ', JSON.stringify(payload));
-
   switch (action.type) {
     case AT.FETCHING_BOOKS:
       return {

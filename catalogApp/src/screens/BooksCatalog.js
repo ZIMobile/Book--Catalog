@@ -4,12 +4,11 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 
 import BookList from 'components/BookList';
 import SearchHeader from 'components/SearchBar';
+import {edges} from '../constants/Layout';
 
 const BooksCatalog = () => {
   return (
-    <SafeAreaView
-      edges={['right', 'bottom', 'left']}
-      style={[styles.safeContainer]}>
+    <SafeAreaView edges={edges} style={styles.safeContainer}>
       <SearchHeader />
       <BookList />
     </SafeAreaView>

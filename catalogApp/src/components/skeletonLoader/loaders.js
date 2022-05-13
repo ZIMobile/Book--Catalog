@@ -2,7 +2,6 @@ import * as React from 'react';
 import {StyleSheet, View} from 'react-native';
 import ContentLoader, {Rect} from 'react-content-loader/native';
 
-// Animation speed in seconds.
 const ANIMATION_SPEED = 1.2;
 
 const Bone = ({children}) => {
@@ -49,7 +48,6 @@ const styles = StyleSheet.create({
   title: {
     height: 20,
     width: 270,
-    // paddingBottom: 10,
   },
   desc: {
     height: 45,

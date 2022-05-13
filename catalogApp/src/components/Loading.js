@@ -14,6 +14,11 @@ export function Loading() {
 }
 
 const styles = StyleSheet.create({
-  loadingContainer: {height: 40, padding: 20},
-  loadingIndicator: {alignSelf: 'center'},
+  loadingContainer: {
+    height: 40,
+    padding: 20,
+  },
+  loadingIndicator: {
+    alignSelf: 'center',
+  },
 });
