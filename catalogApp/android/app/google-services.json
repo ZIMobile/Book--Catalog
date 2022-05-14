@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "608347808124",
+    "project_id": "book-catalog-app-89bc3",
+    "storage_bucket": "book-catalog-app-89bc3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:608347808124:android:6b230f3c3a337df2e104f9",
+        "android_client_info": {
+          "package_name": "com.catalogapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "608347808124-q98303gj6ca0jhklfaoqeo6d3fadoge6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBe-6XH97Smv4QD5NdgH9lmQy3IeEyTgww"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "608347808124-q98303gj6ca0jhklfaoqeo6d3fadoge6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

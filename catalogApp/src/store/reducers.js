@@ -9,6 +9,10 @@ const initialCatalogState = {
   error: null,
   searchValue: Strings.Empty,
 };
+const initialAuthState = {
+  isLoggedIn: false,
+  isLoading: false,
+};
 
 export const catalogReducer = (state = initialCatalogState, action) => {
   switch (action.type) {
@@ -44,6 +48,23 @@ export const catalogReducer = (state = initialCatalogState, action) => {
       return {
         ...state,
         searchValue: action.payload,
+      };
+    default:
+      return state;
+  }
+};
+
+export const authReducer = (state = initialAuthState, action) => {
+  switch (action.type) {
+    case AT.SET_IS_LOGGED_IN:
+      return {
+        ...state,
+        isLoggedIn: action.payload.isLoggedIn,
+      };
+    case AT.SET_IS_LOGGED_IN_LOADING:
+      return {
+        ...state,
+        isLoading: action.payload.isLoading,
       };
     default:
       return state;

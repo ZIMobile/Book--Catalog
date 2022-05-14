@@ -3,4 +3,5 @@ export default {
   bookDetails: 'Book Details',
   typeHere: 'Type Here...',
   Empty: '',
+  Login: 'Login',
 };

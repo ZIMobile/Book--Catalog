@@ -5,35 +5,60 @@ import BooksCatalog from '../screens/BooksCatalog';
 import BookDetails from '../screens/BookDetails';
 import Screens from '../constants/Screens';
 import Strings from '../constants/Strings';
+import Login from '../screens/Login';
+import {useDispatch, useSelector} from 'react-redux';
+import {Button} from '../components/Button';
+import AuthService from '../services/Auth.service';
 
-const Stack = createStackNavigator();
+const AppStack = createStackNavigator();
+const LoginStack = createStackNavigator();
 
 const Navigation = () => {
+  const dispatch = useDispatch();
+  const isLoggedIn = useSelector(state => state?.auth.isLoggedIn);
+
   return (
     <NavigationContainer>
-      <Stack.Navigator
-        screenOptions={{
-          headerBackTitleVisible: false,
-          headerTitleAlign: 'center',
-          headerTitleStyle: {fontSize: 25},
-        }}>
-        <Stack.Screen
-          name={Screens.booksCatalog}
-          component={BooksCatalog}
-          options={{title: Strings.bookCatalog}}
-        />
-        <Stack.Screen
-          name={Screens.bookDetails}
-          component={BookDetails}
-          options={({route}) => ({
-            title: route.params?.bookDetails?.title || Strings.bookDetails,
-            headerTitleContainerStyle: {
-              width: '85%',
-              alignItems: 'center',
-            },
-          })}
-        />
-      </Stack.Navigator>
+      {isLoggedIn ? (
+        <AppStack.Navigator
+          screenOptions={{
+            headerBackTitleVisible: false,
+            headerTitleAlign: 'center',
+            headerTitleStyle: {fontSize: 25},
+          }}>
+          <AppStack.Screen
+            name={Screens.booksCatalog}
+            component={BooksCatalog}
+            options={{
+              title: Strings.bookCatalog,
+              headerLeft: () => (
+                <Button onPress={() => dispatch(AuthService.logOut())} />
+              ),
+            }}
+          />
+          <AppStack.Screen
+            name={Screens.bookDetails}
+            component={BookDetails}
+            options={({route}) => ({
+              title: route.params?.bookDetails?.title || Strings.bookDetails,
+              headerTitleContainerStyle: {
+                width: '85%',
+                alignItems: 'center',
+              },
+            })}
+          />
+        </AppStack.Navigator>
+      ) : (
+        <LoginStack.Navigator screenOptions={{headerShown: false}}>
+          <LoginStack.Screen
+            name={Screens.Login}
+            component={Login}
+            options={{
+              title: Strings.Login,
+            }}
+          />
+        </LoginStack.Navigator>
+      )}
     </NavigationContainer>
   );
 };
